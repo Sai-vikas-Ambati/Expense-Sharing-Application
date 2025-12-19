@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '../hooks/useAuth';
 import { groupsApi, expensesApi, settlementsApi } from '../lib/api';
 import { formatCurrency, formatDate, getInitials } from '../lib/utils';
 import {
     ArrowLeft,
-    Users,
     Plus,
     Receipt,
     ArrowRightLeft,
@@ -22,7 +21,6 @@ type Tab = 'expenses' | 'balances' | 'settlements';
 
 export default function GroupDetail() {
     const { id } = useParams<{ id: string }>();
-    const navigate = useNavigate();
     const { user } = useAuth();
     const [activeTab, setActiveTab] = useState<Tab>('expenses');
     const [showAddExpense, setShowAddExpense] = useState(false);
@@ -100,10 +98,10 @@ export default function GroupDetail() {
                         <div>
                             <span className="text-sm text-slate-400">Your balance</span>
                             <p className={`text-2xl font-bold ${userSummary.balance > 0
-                                    ? 'text-emerald-400'
-                                    : userSummary.balance < 0
-                                        ? 'text-red-400'
-                                        : 'text-slate-400'
+                                ? 'text-emerald-400'
+                                : userSummary.balance < 0
+                                    ? 'text-red-400'
+                                    : 'text-slate-400'
                                 }`}>
                                 {userSummary.balance > 0 && '+'}
                                 {formatCurrency(userSummary.balance)}
@@ -134,8 +132,8 @@ export default function GroupDetail() {
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
                                 className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all capitalize ${activeTab === tab
-                                        ? 'bg-blue-500 text-white'
-                                        : 'text-slate-400 hover:text-white'
+                                    ? 'bg-blue-500 text-white'
+                                    : 'text-slate-400 hover:text-white'
                                     }`}
                             >
                                 {tab}
@@ -318,10 +316,10 @@ function BalancesList({
                                 </div>
                             </div>
                             <p className={`text-lg font-semibold ${balance.balance > 0
-                                    ? 'text-emerald-400'
-                                    : balance.balance < 0
-                                        ? 'text-red-400'
-                                        : 'text-slate-400'
+                                ? 'text-emerald-400'
+                                : balance.balance < 0
+                                    ? 'text-red-400'
+                                    : 'text-slate-400'
                                 }`}>
                                 {balance.balance > 0 ? '+' : ''}{formatCurrency(balance.balance)}
                             </p>
@@ -552,8 +550,8 @@ function AddExpenseModal({
                                     type="button"
                                     onClick={() => setSplitType(type)}
                                     className={`py-2 px-3 rounded-lg text-sm font-medium transition-all ${splitType === type
-                                            ? 'bg-blue-500 text-white'
-                                            : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                                        ? 'bg-blue-500 text-white'
+                                        : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
                                         }`}
                                 >
                                     {type.charAt(0) + type.slice(1).toLowerCase()}
@@ -571,8 +569,8 @@ function AddExpenseModal({
                                 <div
                                     key={p.userId}
                                     className={`p-3 rounded-lg border transition-all ${p.selected
-                                            ? 'bg-slate-700/50 border-blue-500/50'
-                                            : 'bg-slate-800/50 border-slate-700'
+                                        ? 'bg-slate-700/50 border-blue-500/50'
+                                        : 'bg-slate-800/50 border-slate-700'
                                         }`}
                                 >
                                     <div className="flex items-center justify-between">
@@ -789,8 +787,8 @@ function SettleUpModal({
                                             setAmount(s.amount.toString());
                                         }}
                                         className={`w-full p-3 rounded-lg border text-left transition-all ${selectedSettlement?.toUserId === s.toUserId
-                                                ? 'bg-blue-500/20 border-blue-500'
-                                                : 'bg-slate-700/50 border-slate-600 hover:border-slate-500'
+                                            ? 'bg-blue-500/20 border-blue-500'
+                                            : 'bg-slate-700/50 border-slate-600 hover:border-slate-500'
                                             }`}
                                     >
                                         <div className="flex items-center justify-between">

@@ -19,7 +19,6 @@ import { toast } from 'sonner';
 export default function Dashboard() {
     const { user, logout } = useAuth();
     const [showCreateModal, setShowCreateModal] = useState(false);
-    const queryClient = useQueryClient();
 
     const { data, isLoading } = useQuery({
         queryKey: ['groups'],
@@ -152,10 +151,10 @@ export default function Dashboard() {
                                 <div className="pt-3 border-t border-slate-700/50">
                                     <span className="text-sm text-slate-400">Your balance</span>
                                     <p className={`text-lg font-semibold ${parseFloat(group.userBalance) > 0
-                                            ? 'text-emerald-400'
-                                            : parseFloat(group.userBalance) < 0
-                                                ? 'text-red-400'
-                                                : 'text-slate-400'
+                                        ? 'text-emerald-400'
+                                        : parseFloat(group.userBalance) < 0
+                                            ? 'text-red-400'
+                                            : 'text-slate-400'
                                         }`}>
                                         {parseFloat(group.userBalance) > 0 && '+'}
                                         {formatCurrency(parseFloat(group.userBalance))}

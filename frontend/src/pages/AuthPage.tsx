@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -80,8 +80,8 @@ export default function AuthPage() {
                         <button
                             onClick={() => setIsLogin(true)}
                             className={`flex-1 py-2.5 rounded-md text-sm font-medium transition-all ${isLogin
-                                    ? 'bg-blue-500 text-white shadow-md'
-                                    : 'text-slate-400 hover:text-white'
+                                ? 'bg-blue-500 text-white shadow-md'
+                                : 'text-slate-400 hover:text-white'
                                 }`}
                         >
                             Sign In
@@ -89,8 +89,8 @@ export default function AuthPage() {
                         <button
                             onClick={() => setIsLogin(false)}
                             className={`flex-1 py-2.5 rounded-md text-sm font-medium transition-all ${!isLogin
-                                    ? 'bg-blue-500 text-white shadow-md'
-                                    : 'text-slate-400 hover:text-white'
+                                ? 'bg-blue-500 text-white shadow-md'
+                                : 'text-slate-400 hover:text-white'
                                 }`}
                         >
                             Sign Up

@@ -1,0 +1,11 @@
+# Backend Render Configuration
+# This file tells Render how to build and run the backend
+
+# Build Command: npm install && npx prisma generate && npm run build
+# Start Command: npm start
+
+# Environment Variables Required:
+# DATABASE_URL - PostgreSQL connection string (pooled)
+# DATABASE_URL_UNPOOLED - PostgreSQL direct connection (for migrations)
+# JWT_SECRET - Secret key for JWT tokens
+# PORT - Port to run on (Render sets this automatically)
